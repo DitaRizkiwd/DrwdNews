@@ -1,5 +1,7 @@
 package com.bcasandroid.drwdnews.presentation.bussiness_screen.view
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -10,10 +12,11 @@ import com.bcasandroid.drwdnews.data.response_model.Article
 import com.bcasandroid.drwdnews.databinding.FragmentBussinessBinding
 import com.bcasandroid.drwdnews.presentation.bussiness_screen.adapter.BussinessAdapter
 import com.bcasandroid.drwdnews.presentation.bussiness_screen.view_model.BussninessViewModel
+import com.bcasandroid.drwdnews.utils.NewsItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BussinessFragment : BaseFragment<FragmentBussinessBinding>() {
+class BussinessFragment : BaseFragment<FragmentBussinessBinding>(){
     private lateinit var bussinessNewsAdapter: BussinessAdapter
     private val viewmodel: BussninessViewModel by viewModels()
     override fun inflateBinding(
@@ -41,6 +44,10 @@ class BussinessFragment : BaseFragment<FragmentBussinessBinding>() {
             context = binding.root.context
         )
         binding.componenbussiness.rvNewsComponen.adapter = bussinessNewsAdapter
+        binding.componenbussiness.rvNewsComponen.setOnClickListener { trans->  }
+
     }
+
+
 
 }

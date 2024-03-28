@@ -14,4 +14,12 @@ class NewsRemoteDataSourceImpl @Inject constructor(val service : NewsService) : 
     override suspend fun getDataNewsBussniness(): Response<NewsResponse> {
         return service.getNews(Constants.COUNTRY,"business", Constants.API_KEY)
     }
+
+    override suspend fun getDataNewsEntertainment(): Response<NewsResponse> {
+        return service.getNews(Constants.COUNTRY,"entertainment", Constants.API_KEY)
+    }
+
+    override suspend fun getDataNewsScience(): Response<NewsResponse> {
+        return service.getNews(Constants.COUNTRY,"science", Constants.API_KEY)
+    }
 }

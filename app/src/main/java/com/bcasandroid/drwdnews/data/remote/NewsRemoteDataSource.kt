@@ -6,4 +6,8 @@ import retrofit2.Response
 interface NewsRemoteDataSource {
     suspend fun getDataNews() :Response<NewsResponse>
     suspend fun getDataNewsBussniness():Response<NewsResponse>
+
+    suspend fun getDataNewsEntertainment():Response<NewsResponse>
+
+    suspend fun getDataNewsScience():Response<NewsResponse>
 }
