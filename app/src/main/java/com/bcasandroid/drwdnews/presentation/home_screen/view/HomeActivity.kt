@@ -12,7 +12,7 @@ import com.bcasandroid.drwdnews.utils.NewsItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity(), NewsItemClickListener {
+class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +26,8 @@ class HomeActivity : AppCompatActivity(), NewsItemClickListener {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
     }
 
-    override fun onNewsItemClickListener(url: String) {
-         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(intent)
-    }
+//    override fun onNewsItemClickListener(url: String) {
+//         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+//        startActivity(intent)
+//    }
 }

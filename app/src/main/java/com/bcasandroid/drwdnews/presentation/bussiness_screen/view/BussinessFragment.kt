@@ -3,12 +3,14 @@ package com.bcasandroid.drwdnews.presentation.bussiness_screen.view
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bcasandroid.drwdnews.base.BaseFragment
 import com.bcasandroid.drwdnews.data.response_model.Article
+import com.bcasandroid.drwdnews.data.response_model.NewsResponse
 import com.bcasandroid.drwdnews.databinding.FragmentBussinessBinding
 import com.bcasandroid.drwdnews.presentation.bussiness_screen.adapter.BussinessAdapter
 import com.bcasandroid.drwdnews.presentation.bussiness_screen.view_model.BussninessViewModel
@@ -16,9 +18,10 @@ import com.bcasandroid.drwdnews.utils.NewsItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BussinessFragment : BaseFragment<FragmentBussinessBinding>(){
+class BussinessFragment : BaseFragment<FragmentBussinessBinding>(), NewsItemClickListener{
     private lateinit var bussinessNewsAdapter: BussinessAdapter
     private val viewmodel: BussninessViewModel by viewModels()
+
     override fun inflateBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -39,15 +42,21 @@ class BussinessFragment : BaseFragment<FragmentBussinessBinding>(){
     }
 
     private fun setUpViewBussiness(data: List<Article>?) {
+
         bussinessNewsAdapter = BussinessAdapter(
             bussinessdata = data ?: listOf(),
-            context = binding.root.context
+            context = binding.root.context,
+            newsItemClickListener = this
+
         )
         binding.componenbussiness.rvNewsComponen.adapter = bussinessNewsAdapter
-        binding.componenbussiness.rvNewsComponen.setOnClickListener { trans->  }
-
     }
 
+    override fun onNewsItemClickListener(url: String) {
+        val intent = Intent(requireContext(),BussinessActivity::class.java)
+        intent.putExtra("url",url)
+        startActivity(intent)
+    }
 
 
 }

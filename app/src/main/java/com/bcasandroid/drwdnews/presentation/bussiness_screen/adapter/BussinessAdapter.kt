@@ -8,11 +8,21 @@ import com.bcasandroid.drwdnews.R
 import com.bcasandroid.drwdnews.data.response_model.Article
 import com.bcasandroid.drwdnews.data.response_model.NewsResponse
 import com.bcasandroid.drwdnews.databinding.ItemDescriptionNewsBinding
+import com.bcasandroid.drwdnews.presentation.bussiness_screen.view_model.BussninessViewModel
+import com.bcasandroid.drwdnews.utils.NewsItemClickListener
 import com.bumptech.glide.Glide
 
-class BussinessAdapter(private val bussinessdata: List<Article>, private val context: Context) :
+class BussinessAdapter(private val bussinessdata: List<Article>,
+                       private val context: Context,
+                        private val newsItemClickListener: NewsItemClickListener) :
     RecyclerView.Adapter<BussinessAdapter.bussinessViewHolder>() {
 
+//    private var _onClickBussiness:(BussninessViewModel)->Unit={
+//
+//    }
+//    fun setOnClickListener(listener:(BussninessViewModel)->Unit){
+//        _onClickBussiness=listener
+//    }
     inner class bussinessViewHolder(val binding: ItemDescriptionNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Article) {
@@ -25,6 +35,9 @@ class BussinessAdapter(private val bussinessdata: List<Article>, private val con
                 .placeholder(R.drawable.logoberita) // Placeholder image while loading
                 .error(R.drawable.ic_launcher_background) // Error image if loading fails
                 .into(binding.ivdescnews)
+            binding.root.setOnClickListener{
+                newsItemClickListener.onNewsItemClickListener(data.url)
+            }
         }
 
     }
@@ -43,4 +56,6 @@ class BussinessAdapter(private val bussinessdata: List<Article>, private val con
     override fun onBindViewHolder(holder: bussinessViewHolder, position: Int) {
         holder.bind(bussinessdata[position])
     }
+
+
 }
