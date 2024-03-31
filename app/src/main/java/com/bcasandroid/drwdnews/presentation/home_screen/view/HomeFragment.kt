@@ -7,6 +7,7 @@ import com.bcasandroid.drwdnews.databinding.FragmentHomeBinding
 import com.bcasandroid.drwdnews.presentation.bussiness_screen.view.BussinessFragment
 import com.bcasandroid.drwdnews.presentation.entertainment_screen.view.EntertainmentFragment
 import com.bcasandroid.drwdnews.presentation.home_screen.adapter.NewsTabAdapter
+import com.bcasandroid.drwdnews.presentation.science_screen.view.ScienceFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +35,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(){
         adapternews = NewsTabAdapter(this)
         adapternews?.addListFragment(BussinessFragment())
         adapternews?.addListFragment(EntertainmentFragment())
+        adapternews?.addListFragment(ScienceFragment())
         viewPager.adapter=adapternews
         TabLayoutMediator(tabLayout,viewPager){
             tab,position ->
@@ -43,6 +45,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(){
                     }
                     1->{
                         tab.text= "Entertainment"
+                    }
+                    2->{
+                        tab.text="Science"
                     }
 
                 }

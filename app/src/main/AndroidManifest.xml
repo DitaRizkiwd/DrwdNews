@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DrwdNews"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.science_screen.view.ScienceActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.bussiness_screen.view.BussinessActivity"
             android:exported="false" />
         <activity
