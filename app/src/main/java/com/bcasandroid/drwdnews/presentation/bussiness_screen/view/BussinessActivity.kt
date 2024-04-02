@@ -18,7 +18,6 @@ import com.bcasandroid.drwdnews.utils.NewsItemClickListener
 
 class BussinessActivity : AppCompatActivity(){
     private lateinit var binding :ActivityBussinessBinding
-    private lateinit var progressBar: ProgressBar
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -42,7 +41,7 @@ class BussinessActivity : AppCompatActivity(){
     @RequiresApi(Build.VERSION_CODES.O)
     private fun webViewSetup(baseurl:String?){
         binding.wvbussiness.webViewClient= WebViewClient()
-        progressBar=findViewById(R.id.pbbussiness)
+
         binding.wvbussiness.apply {
             settings.javaScriptEnabled=true
             settings.safeBrowsingEnabled=true

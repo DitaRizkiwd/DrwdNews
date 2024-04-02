@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/logoberita"/>
+            android:src="@drawable/logonews"/>
         <TextView
             android:id="@+id/tvdesctitlenews"
             android:layout_width="wrap_content"
@@ -35,11 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="U.S. stock futures traded near the flatline Monday night, after the major averages took a breather from their rally.\r\nDow Jones Industrial Average futures inched up just 17 points, or 0.05%. Futures … [+1360 chars]"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click Here"/>
 
 
 

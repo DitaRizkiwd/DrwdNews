@@ -14,14 +14,16 @@ import com.bcasandroid.drwdnews.databinding.FragmentEntertainmentBinding
 
 class EntertainmentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEntertainmentBinding
-    private lateinit var progressBar: ProgressBar
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =ActivityEntertainmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val url = intent.getStringExtra("url")
+
         webViewSetup(url)
 
         binding.backentertainment.setOnClickListener{
@@ -36,7 +38,6 @@ class EntertainmentActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun webViewSetup(baseurl:String?){
         binding.wventertainment.webViewClient= WebViewClient()
-        progressBar=findViewById(R.id.pbentertainment)
         binding.wventertainment.apply {
             settings.javaScriptEnabled=true
             settings.safeBrowsingEnabled=true

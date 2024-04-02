@@ -3,6 +3,7 @@ package com.bcasandroid.drwdnews.presentation.science_screen.view
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
@@ -12,7 +13,6 @@ import com.bcasandroid.drwdnews.databinding.ActivityScienceBinding
 
 class ScienceActivity :AppCompatActivity(){
     private lateinit var binding: ActivityScienceBinding
-    private lateinit var progressBar: ProgressBar
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,6 @@ class ScienceActivity :AppCompatActivity(){
 
         val url = intent.getStringExtra("url")
         webViewSetup(url)
-
         binding.backscience .setOnClickListener{
             if(binding.wvscience.canGoBack()){
                 binding.wvscience .goBack()
@@ -37,7 +36,7 @@ class ScienceActivity :AppCompatActivity(){
     private fun webViewSetup(baseurl:String?)
     {
         binding.wvscience.webViewClient= WebViewClient()
-        progressBar=findViewById(R.id.pbscience)
+
         binding.wvscience.apply {
             settings.javaScriptEnabled=true
             settings.safeBrowsingEnabled=true
