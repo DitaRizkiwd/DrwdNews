@@ -1,9 +1,11 @@
 package com.bcasandroid.drwdnews.presentation.science_screen.view
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
@@ -36,6 +38,18 @@ class ScienceActivity :AppCompatActivity(){
     private fun webViewSetup(baseurl:String?)
     {
         binding.wvscience.webViewClient= WebViewClient()
+        val loading = binding.progressscience
+        binding.wvscience.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                loading.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                loading.visibility = View.GONE
+            }
+        }
 
         binding.wvscience.apply {
             settings.javaScriptEnabled=true

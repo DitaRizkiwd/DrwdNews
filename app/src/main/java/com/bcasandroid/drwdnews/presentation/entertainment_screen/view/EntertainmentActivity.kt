@@ -1,8 +1,11 @@
 package com.bcasandroid.drwdnews.presentation.entertainment_screen.view
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
@@ -38,6 +41,20 @@ class EntertainmentActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun webViewSetup(baseurl:String?){
         binding.wventertainment.webViewClient= WebViewClient()
+        val load = binding.progressentertainment
+
+        binding.wventertainment.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                load.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                load.visibility = View.GONE
+            }
+        }
+
         binding.wventertainment.apply {
             settings.javaScriptEnabled=true
             settings.safeBrowsingEnabled=true

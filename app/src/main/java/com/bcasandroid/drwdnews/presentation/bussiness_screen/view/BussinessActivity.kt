@@ -2,10 +2,12 @@ package com.bcasandroid.drwdnews.presentation.bussiness_screen.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
@@ -41,6 +43,19 @@ class BussinessActivity : AppCompatActivity(){
     @RequiresApi(Build.VERSION_CODES.O)
     private fun webViewSetup(baseurl:String?){
         binding.wvbussiness.webViewClient= WebViewClient()
+        val progressBar = binding.progressbusiness
+
+        binding.wvbussiness.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                progressBar.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                progressBar.visibility = View.GONE
+            }
+        }
 
         binding.wvbussiness.apply {
             settings.javaScriptEnabled=true
