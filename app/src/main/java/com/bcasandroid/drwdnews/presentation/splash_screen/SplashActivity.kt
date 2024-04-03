@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         // Handler untuk menunda beralih ke MainActivity selama 4 detik (4000 milidetik)
         Handler().postDelayed({
-            val mainIntent = Intent(this, HomeActivity::class.java)
+            val mainIntent = Intent(this, GetStartedActivity::class.java)
             startActivity(mainIntent)
             finish() // Menutup activity splash screen agar tidak bisa kembali lagi dengan menekan tombol back
         }, 2000) // Waktu delay dalam milidetik (4000 milidetik = 4 detik)

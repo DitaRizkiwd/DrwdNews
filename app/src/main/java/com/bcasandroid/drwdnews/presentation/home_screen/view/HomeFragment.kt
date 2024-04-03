@@ -26,8 +26,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun setupView() {
-
+        binding.progressbar.visibility = View.VISIBLE
         setUpTabView()
+        binding.progressbar.visibility= View.GONE
+
     }
 
     private fun setUpTabView() {

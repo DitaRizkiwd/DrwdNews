@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DrwdNews"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.splash_screen.GetStartedActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.home_screen.view.HomeActivity"
             android:exported="false" />
         <activity
